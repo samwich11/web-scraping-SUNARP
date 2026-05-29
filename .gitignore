@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+.venv/
+venv/
+
+# Variables de entorno
+.env
+
+# Resultados temporales
+uploads/
+temp/
+
+# Playwright
+playwright-report/
