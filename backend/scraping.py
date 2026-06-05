@@ -111,6 +111,12 @@ archivo = RESULTS_DIR / f"{PLACA}.png"
 src = img.get_attribute("src")
 
 # Decodificar y guardar imagen original
+if not src:
+    raise ValueError("No se encontró el atributo src en la imagen")
+
+if "," not in src:
+    raise ValueError(f"El src no tiene formato Base64 válido: {src[:100]}")
+
 base64_data = src.split(",", 1)[1]
 
 with open(archivo, "wb") as f:
