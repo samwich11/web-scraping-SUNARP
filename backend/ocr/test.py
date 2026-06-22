@@ -2,7 +2,7 @@ import easyocr
 import cv2
 
 reader = easyocr.Reader(['en', 'es'], gpu=True)
-ruta = r'C:\Users\Daniel\Documents\Tech-Lab\web scraping\backend\results\ADQ345_3.png'
+ruta = r'C:\Users\Daniel\Documents\Tech-Lab\web scraping\backend\results\A1B234.png'
 imagen = cv2.imread(ruta)
 debug = imagen.copy()
 

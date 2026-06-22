@@ -1,22 +1,41 @@
+import json
 import cv2
 import easyocr
 
-ruta = r'C:\Users\Daniel\Documents\Tech-Lab\web scraping\backend\results\ADQ345_3.png'
+ruta = r'C:\Users\Daniel\Documents\Tech-Lab\web scraping\backend\results\A1B234.png'
 
-imagen = cv2.imread(ruta, cv2.COLOR_BGR2GRAY)
+campos = [
+    "placa",          
+    "serie",          
+    "vin",            
+    "motor",          
+    "color",          
+    "marca",          
+    "modelo",         
+    "placa_vigente",  
+    "placa_anterior", 
+    "estado",         
+    "anotaciones",    
+    "sede",           
+    "anio_modelo",    
+    "propietario",    
+]
 
-if imagen is None:
-    raise FileNotFoundError(f'No se pudo cargar la imagen: {ruta}')
 
-_, imagen_limpia = cv2.threshold(imagen, 150, 255, cv2.THRESH_BINARY)
 
-cv2.imwrite('imagen_sin_marca.png', imagen_limpia)
+cv2.imwrite("debug_campos.png", debug)
+cv2.imshow("ROI", debug)
 
-reader = easyocr.Reader(['en', 'es'], gpu=True)
-resultado = reader.readtext(imagen_limpia)
+print("Imagen de depuración guardada como 'debug_campos.png'.")
 
-for bbox, texto, prob in resultado:
+# cv2.imwrite('imagen_recortada.png', imagen_recortada)
+
+# reader = easyocr.Reader(['en', 'es'], gpu=True)
+# resultado = reader.readtext(imagen_limpia)
+
+# for bbox, texto, prob in resultado:
     # print(f"Texto: {texto} (Confianza: {prob:.2f})")
     # print(f"Coordenadas: {bbox}\n")
-    print(texto)
-    print("-" * 40)
+    # print(texto)
+    # print("-" * 40)
+    # pass
