@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Sistema de Detección de Placas</title>
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="style.css">
+
+</head>
+
+<body>
+    <!-- ========================= HEADER ========================= -->
+    <header>
+
+        <div class="logo">
+
+            <div class="logo-box"></div>
+            <div>
+                <h1>Sistema de Detección de Placas</h1>
+                <p>Dashboard</p>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- ========================= MENU ========================= -->
+
+    <nav>
+
+        <button class="tab active" data-tab="stream">
+            Stream en Vivo
+        </button>
+
+        <button class="tab" data-tab="upload">
+            Cargar video o imagen
+        </button>
+
+        <button class="tab" data-tab="plates">
+            Placas Detectadas
+        </button>
+
+        <button class="tab" data-tab="detail">
+            Detalle Placa-Vehículo
+        </button>
+
+    </nav>
+
+    <!-- ========================= MAIN ========================= -->
+
+    <main>
+        <!-- STREAM -->
+
+        <section id="stream"
+                 class="content active">
+
+            <div class="card">
+                <h2>Stream en Vivo</h2>
+
+                <div class="camera-placeholder">
+                    Vista previa de la cámara
+                </div>
+
+                <div class="status">
+                    <div class="status-dot"></div>
+                    Sistema listo
+                </div>
+
+                <div class="buttons">
+                    <button>Iniciar</button>
+                    <button>Detener</button>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- CARGA -->
+
+        <section id="upload"
+                 class="content">
+
+            <div class="card">
+
+                <h2>Reconocimiento mediante Archivo</h2>
+                <div class="upload-box">
+                    <div class="upload-icon">
+                        ⬆
+                    </div>
+                    <h3>
+                        Arrastra un archivo aquí
+                    </h3>
+
+                    <p>
+                        o selecciona una imagen o un video
+                    </p>
+
+                    <button class="upload-btn">
+                        Seleccionar Archivo
+                    </button>
+
+                    <input type="file" accept="image/*,video/*">
+                </div>
+
+                <div class="supported">
+                    <div class="support-card">
+                        <strong>Imágenes</strong>
+                        <span>JPG · PNG · JPEG</span>
+                    </div>
+
+                    <div class="support-card">
+                        <strong>Videos</strong>
+                        <span>MP4 · AVI · MOV</span>
+                    </div>
+
+                    <div class="support-card">
+                        <strong>Resultado</strong>
+                        <span>Detección de placas</span>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- TABLA DE PLACAS REGISTRADAS-->
+
+        <section id="plates"
+                 class="content">
+
+            <div class="card">
+                <div class="table-header">
+                    <h2>Placas Detectadas</h2>
+                    <input type="text" placeholder="Buscar...">
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Hora</th>
+                            <th>Placa</th>
+                            <th>Confianza</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>10:24:15</td>
+                            <td>ABC-123</td>
+                            <td>98%</td>
+                        </tr>
+
+                        <tr>
+                            <td>10:28:02</td>
+                            <td>XKD-941</td>
+                            <td>95%</td>
+                        </tr>
+
+                        <tr>
+                            <td>10:30:11</td>
+                            <td>TRP-452</td>
+                            <td>97%</td>
+                        </tr>
+
+                        <tr>
+                            <td>10:34:45</td>
+                            <td>LPN-210</td>
+                            <td>96%</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- DETALLE DE LAS PLACAS -->
+
+        <section id="detail" class="content">
+
+            <div class="card">
+
+                <h2>Detalle Placa - Vehículo</h2>
+                <div class="detail-container">
+                    <div class="vehicle-image">
+                        Imagen del Vehículo
+                    </div>
+
+                    <div class="vehicle-info">
+                        <div class="info">
+                            <span>Placa</span>
+                            <strong>ABC-123</strong>
+                        </div>
+                        <div class="info">
+                            <span>Marca</span>
+                            <strong>Toyota</strong>
+                        </div>
+
+                        <div class="info">
+                            <span>Modelo</span>
+                            <strong>Corolla</strong>
+                        </div>
+
+                        <div class="info">
+                            <span>Color</span>
+                            <strong>Blanco</strong>
+                        </div>
+
+                        <div class="info">
+                            <span>Fecha</span>
+                            <strong>12/06/2026</strong>
+                        </div>
+
+                        <div class="info">
+                            <span>Hora</span>
+                            <strong>10:24:15</strong>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ========================= FOOTER ========================= -->
+
+    <footer>
+        Sistema de Detección de Placas © 2026
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
