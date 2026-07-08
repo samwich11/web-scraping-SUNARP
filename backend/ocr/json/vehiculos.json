@@ -1,0 +1,44 @@
+[
+    {
+        "placa_consultada": "ADQ345",
+        "fecha_registro_ocr": "2026-07-06 02:03:28",
+        "data": {
+            "placa": "ADQ345",
+            "serie": "KLATF19YISB537195",
+            "vin": "",
+            "motor": "G15MF203451",
+            "color": "GUINDA METALICO",
+            "marca": "DAEWOO",
+            "modelo": "CIELO GLE",
+            "placa_vigente": "ADQ345",
+            "placa_anterior": "108469",
+            "estado": "EN CIRCULACION",
+            "anotaciones": "NINGUNA",
+            "sede": "LIMA",
+            "anio_modelo": "",
+            "propietarios": "FLORES DE VALDIVIESO, ROSA HAYDEE VALDIVIEZO MOYA, ANGEL ELIAS",
+            "fecha_consulta": "05/06/2026 02:36:14"
+        }
+    },
+    {
+        "placa_consultada": "X7I962_4",
+        "fecha_registro_ocr": "2026-07-06 02:06:48",
+        "data": {
+            "placa": "C9IKSFYYI",
+            "serie": "TC20204",
+            "vin": "BLANCO GRIS",
+            "motor": "",
+            "color": "62",
+            "marca": "UNA",
+            "modelo": "IRCULACION",
+            "placa_vigente": "UNA",
+            "placa_anterior": "",
+            "estado": "",
+            "anotaciones": "2R4C VACOLF? RN",
+            "sede": "ERRADA",
+            "anio_modelo": "",
+            "propietarios": "",
+            "fecha_consulta": ""
+        }
+    }
+]
