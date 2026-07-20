@@ -40,5 +40,467 @@
             "propietarios": "",
             "fecha_consulta": ""
         }
+    },
+    {
+        "placa_consultada": "X7I962",
+        "fecha_registro_ocr": "2026-07-20 12:38:50",
+        "data": {
+            "placa": "X7I962",
+            "serie": "9F3FC9IKSEXXI1515",
+            "vin": "9F3FCIIKSEXXI1515",
+            "motor": "JO5ETC20204",
+            "color": "ROIO BLANCO GRIS",
+            "marca": "HINO",
+            "modelo": "FC BUS",
+            "placa_vigente": "X7I962",
+            "placa_anterior": "NINGUNA",
+            "estado": "EN CIRCULACION",
+            "anotaciones": "NINGUNA",
+            "sede": "CUSCO",
+            "anio_modelo": "2014",
+            "propietarios": "CORPORACION HERMANOS VASQUEZ CCOPA SOCIEDAD ANONIMA CERRADA",
+            "fecha_consulta": "20/07/2026 12.38.39"
+        }
+    },
+    {
+        "placa_consultada": "5367MC",
+        "fecha_registro_ocr": "2026-07-20 13:04:44",
+        "data": {
+            "placa": "5367MC",
+            "serie": "LXYICMLO3PO262926",
+            "vin": "LXYICMLO3PO262926",
+            "motor": "SS163FMLPBO50389",
+            "color": "ROIO",
+            "marca": "SSENDA",
+            "modelo": "X-TRAIL-200",
+            "placa_vigente": "5367MC",
+            "placa_anterior": "NINGUNA",
+            "estado": "EN CIRCULACION",
+            "anotaciones": "NINGUNA",
+            "sede": "LIMA",
+            "anio_modelo": "2023",
+            "propietarios": "MORENO BRICEÑO, CARLOS ALBERTO",
+            "fecha_consulta": "20/07/2026 13,04.34"
+        }
+    },
+    {
+        "placa_consultada": "CKF095",
+        "fecha_registro_ocr": "2026-07-20 12:51:43",
+        "data": {
+            "placa": "CKFO95",
+            "serie": "2FMPK4K95PBA47248",
+            "vin": "2FMPKAK9SPBA47248",
+            "motor": "PBA47248",
+            "color": "AZUL",
+            "marca": "FORD",
+            "modelo": "EDGE",
+            "placa_vigente": "CKF095",
+            "placa_anterior": "NINGUNA",
+            "estado": "EN CIRCULACION",
+            "anotaciones": "NINGUNA",
+            "sede": "LIMA",
+            "anio_modelo": "2023",
+            "propietarios": "EPOJE S.A.C.",
+            "fecha_consulta": "20/07/2026 12.51.32"
+        }
+    },
+    {
+        "placa_consultada": "CUI503",
+        "fecha_registro_ocr": "2026-07-20 12:52:25",
+        "data": {
+            "placa": "CUI503",
+            "serie": "HIRPBGFA6TF002396",
+            "vin": "HIRPBGFA6TFO02396",
+            "motor": "SOREATISBCLSD00292",
+            "color": "AZUL",
+            "marca": "JETOUR",
+            "modelo": "X7O",
+            "placa_vigente": "CUI503",
+            "placa_anterior": "NINGUNA",
+            "estado": "EN CIRCULACION",
+            "anotaciones": "NINGUNA",
+            "sede": "LIMA",
+            "anio_modelo": "2026",
+            "propietarios": "DEPAZ CUEVA, FATIMA OLGA GOMEZ JULCA, HERNAN MAURO",
+            "fecha_consulta": "20/07/2026 12,52:15"
+        }
+    },
+    {
+        "placa_consultada": "BUD370",
+        "fecha_registro_ocr": "2026-07-20 12:54:22",
+        "data": {
+            "placa": "BUD370",
+            "serie": "SINFBNILIMA911182",
+            "vin": "SINFBNILIMA911182",
+            "motor": "MR20684983W",
+            "color": "ROIO OSCURO",
+            "marca": "NISSAN",
+            "modelo": "QASHQAI",
+            "placa_vigente": "BUD37O",
+            "placa_anterior": "NINGUNA",
+            "estado": "EN CIRCULACION",
+            "anotaciones": "NINGUNA",
+            "sede": "LIMA",
+            "anio_modelo": "2021",
+            "propietarios": "HACHO CHIPA, JULIO CESAR",
+            "fecha_consulta": "20/07/2026 12.54.11"
+        }
+    },
+    {
+        "placa_consultada": "ANH335",
+        "fecha_registro_ocr": "2026-07-20 12:55:05",
+        "data": {
+            "placa": "ANH335",
+            "serie": "9FBHSRAA5GM885374",
+            "vin": "9FBHSRAA5GM885374",
+            "motor": "K4MA6900266934",
+            "color": "VERDE AMAZONIA",
+            "marca": "RENAULT",
+            "modelo": "DUSTER",
+            "placa_vigente": "ANH335",
+            "placa_anterior": "NINGUNA",
+            "estado": "EN CIRCULACION",
+            "anotaciones": "NINGUNA",
+            "sede": "LIMA",
+            "anio_modelo": "2016",
+            "propietarios": "DEL AGUILA TORRES , PABLO ESTEBAN",
+            "fecha_consulta": "20/07/2026 12.54.54"
+        }
+    },
+    {
+        "placa_consultada": "A7J623",
+        "fecha_registro_ocr": "2026-07-20 12:56:27",
+        "data": {
+            "placa": "A7I623",
+            "serie": "LBLLMD28711",
+            "vin": "",
+            "motor": "EL3322559",
+            "color": "AZUL",
+            "marca": "NISSAN",
+            "modelo": "LBLLCWI",
+            "placa_vigente": "A7J623",
+            "placa_anterior": "KQ5553",
+            "estado": "EN CIRCULACION",
+            "anotaciones": "NINGUNA",
+            "sede": "LIMA",
+            "anio_modelo": "",
+            "propietarios": "CARBAJAL ARCE, CARLOS ALBERTO",
+            "fecha_consulta": "20/07/2026 12,56:16"
+        }
+    },
+    {
+        "placa_consultada": "B0K833",
+        "fecha_registro_ocr": "2026-07-20 12:57:09",
+        "data": {
+            "placa": "BOK833",
+            "serie": "INICDUD22AX460079",
+            "vin": "INICDUD22AX460079",
+            "motor": "KA24839323Z",
+            "color": "BLANCO",
+            "marca": "NISSAN",
+            "modelo": "FRONTIER",
+            "placa_vigente": "BOK833",
+            "placa_anterior": "NINGUNA",
+            "estado": "EN CIRCULACION",
+            "anotaciones": "NINGUNA",
+            "sede": "LIMA",
+            "anio_modelo": "2010",
+            "propietarios": "COMPAÑIA LATINOAMERICANA DE RADIODIFUSION S.A",
+            "fecha_consulta": "20/07/2026 12.56:58"
+        }
+    },
+    {
+        "placa_consultada": "CES001",
+        "fecha_registro_ocr": "2026-07-20 12:57:51",
+        "data": {
+            "placa": "CESOO1",
+            "serie": "9BRKAAAG3RO085923",
+            "vin": "9BRK4AAG3RO085923",
+            "motor": "MZOAAC33302",
+            "color": "PLATA METALICO",
+            "marca": "TOYOTA",
+            "modelo": "COROLLA CROSS",
+            "placa_vigente": "CESOO1",
+            "placa_anterior": "NINGUNA",
+            "estado": "EN CIRCULACION",
+            "anotaciones": "NINGUNA",
+            "sede": "LIMA",
+            "anio_modelo": "2024",
+            "propietarios": "CAMPOS ENCALADA, SHIRLEY",
+            "fecha_consulta": "20/07/2026 12,57.40"
+        }
+    },
+    {
+        "placa_consultada": "T8I297",
+        "fecha_registro_ocr": "2026-07-20 12:58:33",
+        "data": {
+            "placa": "T81297",
+            "serie": "3N8CPSHE3TL461369",
+            "vin": "3N8CPSHE3TL461369",
+            "motor": "HR16419856P",
+            "color": "GRIS VOLCANICO",
+            "marca": "NISSAN",
+            "modelo": "KICKS",
+            "placa_vigente": "T81297",
+            "placa_anterior": "NINGUNA",
+            "estado": "EN CIRCULACION",
+            "anotaciones": "NINGUNA",
+            "sede": "TRUJILLO",
+            "anio_modelo": "2026",
+            "propietarios": "GONZALES MENDOZA, LILIANA ROCIO",
+            "fecha_consulta": "20/07/2026 12.58.23"
+        }
+    },
+    {
+        "placa_consultada": "BMB433",
+        "fecha_registro_ocr": "2026-07-20 12:59:15",
+        "data": {
+            "placa": "BMB433",
+            "serie": "WAUZZZ8DZWA040923",
+            "vin": "",
+            "motor": "AEB141209",
+            "color": "GRIS",
+            "marca": "AUDI",
+            "modelo": "A4 LIMOUSINE 1.8T",
+            "placa_vigente": "BMB433",
+            "placa_anterior": "AQG224",
+            "estado": "EN CIRCULACION",
+            "anotaciones": "NINGUNA",
+            "sede": "LIMA",
+            "anio_modelo": "",
+            "propietarios": "GUTIERREZ ZAPATA, ALBERTO FERNANDO VARGAS SERQUEN DE GUTIERREZ, KARLA VERONICA",
+            "fecha_consulta": "20/07/2026 12,59.05"
+        }
+    },
+    {
+        "placa_consultada": "B8J419",
+        "fecha_registro_ocr": "2026-07-20 13:00:36",
+        "data": {
+            "placa": "B81419",
+            "serie": "KNAPC8LLAC7197692",
+            "vin": "KNAPC811AC7197692",
+            "motor": "GAKDBS118790",
+            "color": "PLATA BRILLANTE",
+            "marca": "KIA",
+            "modelo": "SPORTAGE",
+            "placa_vigente": "B8J419",
+            "placa_anterior": "NINGUNA",
+            "estado": "EN CIRCULACION",
+            "anotaciones": "NINGUNA",
+            "sede": "LIMA",
+            "anio_modelo": "2012",
+            "propietarios": "QUIÑONEZ EGUSQUIZA , JUAN",
+            "fecha_consulta": "20/07/2026 13,00.26"
+        }
+    },
+    {
+        "placa_consultada": "CSJ556",
+        "fecha_registro_ocr": "2026-07-20 13:01:18",
+        "data": {
+            "placa": "CSI556",
+            "serie": "3VV9P6B25RM129318",
+            "vin": "3VV9P6B25RM129318",
+            "motor": "DSI136688",
+            "color": "AZUL DUSK",
+            "marca": "VOLKSWAGEN",
+            "modelo": "TAOS",
+            "placa_vigente": "CSJ556",
+            "placa_anterior": "NINGUNA",
+            "estado": "EN CIRCULACION",
+            "anotaciones": "NINGUNA",
+            "sede": "LIMA",
+            "anio_modelo": "2024",
+            "propietarios": "BECERRA HEINICKE , JOSE ANTONIO SEMINARIO CONTRERAS, MARIA CECILIA",
+            "fecha_consulta": "20/07/2026 13,01.08"
+        }
+    },
+    {
+        "placa_consultada": "A2W364",
+        "fecha_registro_ocr": "2026-07-20 13:02:00",
+        "data": {
+            "placa": "A2W364",
+            "serie": "IHLRE383OAC200550",
+            "vin": "IHLRE383OAC200550",
+            "motor": "K24715611912",
+            "color": "ROIO PERLADO",
+            "marca": "HONDA",
+            "modelo": "CR-V",
+            "placa_vigente": "A2W364",
+            "placa_anterior": "NINGUNA",
+            "estado": "EN CIRCULACION",
+            "anotaciones": "NINGUNA",
+            "sede": "LIMA",
+            "anio_modelo": "2010",
+            "propietarios": "RUSKA MAGUIÑA, CARLOS LUIS BENJAMIN",
+            "fecha_consulta": "20/07/2026 13,01.50"
+        }
+    },
+    {
+        "placa_consultada": "B4H289",
+        "fecha_registro_ocr": "2026-07-20 13:03:20",
+        "data": {
+            "placa": "B4H289",
+            "serie": "KLATFI9TIVC249817",
+            "vin": "",
+            "motor": "G15SF440090B",
+            "color": "ROIO",
+            "marca": "DAEWOO",
+            "modelo": "RACER ETI/97",
+            "placa_vigente": "B4H289",
+            "placa_anterior": "AIL250",
+            "estado": "EN CIRCULACION",
+            "anotaciones": "NINGUNA",
+            "sede": "LIMA",
+            "anio_modelo": "",
+            "propietarios": "VEGA BURGA, JESUS CARLOS",
+            "fecha_consulta": "20/07/2026 13,03:10"
+        }
+    },
+    {
+        "placa_consultada": "ANH138",
+        "fecha_registro_ocr": "2026-07-20 13:04:02",
+        "data": {
+            "placa": "ANH138",
+            "serie": "TSMYE2158GM166285",
+            "vin": "TSMYE21S8GM166285",
+            "motor": "M16A1988683",
+            "color": "NEGRO",
+            "marca": "SUZUKI",
+            "modelo": "VITARA",
+            "placa_vigente": "ANH138",
+            "placa_anterior": "NINGUNA",
+            "estado": "EN CIRCULACION",
+            "anotaciones": "NINGUNA",
+            "sede": "LIMA",
+            "anio_modelo": "2016",
+            "propietarios": "YEPEZ LAVAUD, JOSUE FABIAN",
+            "fecha_consulta": "20/07/2026 13,03:52"
+        }
+    },
+    {
+        "placa_consultada": "AKL514",
+        "fecha_registro_ocr": "2026-07-20 13:05:26",
+        "data": {
+            "placa": "AKL514",
+            "serie": "KMHI281386U028015",
+            "vin": "KMHI2813BGU028015",
+            "motor": "GANAFU029825",
+            "color": "PLATA",
+            "marca": "HYUNDAI",
+            "modelo": "NEW TUCSON",
+            "placa_vigente": "AKL514",
+            "placa_anterior": "NINGUNA",
+            "estado": "EN CIRCULACION",
+            "anotaciones": "NINGUNA",
+            "sede": "LIMA",
+            "anio_modelo": "2016",
+            "propietarios": "GANOZA ARENAS, VERONICA MARIA SOLEDAD VIZCARRA PACHECO, PERCY",
+            "fecha_consulta": "20/07/2026 13,05.16"
+        }
+    },
+    {
+        "placa_consultada": "CAM870",
+        "fecha_registro_ocr": "2026-07-20 13:06:08",
+        "data": {
+            "placa": "CAM870",
+            "serie": "1CGSRFHTSNN323003",
+            "vin": "1C6SRFHT6NN323003",
+            "motor": "TNN323003",
+            "color": "AZUL",
+            "marca": "RAM",
+            "modelo": "1500 LIMITED CREW CAB",
+            "placa_vigente": "CAM87O",
+            "placa_anterior": "NINGUNA",
+            "estado": "EN CIRCULACION",
+            "anotaciones": "NINGUNA",
+            "sede": "LIMA",
+            "anio_modelo": "2022",
+            "propietarios": "DEVILLE DEL CAMPO, ROSA LUISA DANIELA ZUCCHETTI CABALLERO; CESAR GIOVANNI",
+            "fecha_consulta": "20/07/2026 13,05.57"
+        }
+    },
+    {
+        "placa_consultada": "ATB381",
+        "fecha_registro_ocr": "2026-07-20 13:06:49",
+        "data": {
+            "placa": "ATB381",
+            "serie": "MALC38ICBGMI17200",
+            "vin": "MALC38ICBGM117200",
+            "motor": "G4FGGU826614",
+            "color": "AZUL GRIS",
+            "marca": "HYUNDAI",
+            "modelo": "CRETA",
+            "placa_vigente": "ATB381",
+            "placa_anterior": "NINGUNA",
+            "estado": "EN CIRCULACION",
+            "anotaciones": "NINGUNA",
+            "sede": "LIMA",
+            "anio_modelo": "2016",
+            "propietarios": "DIAZ HUANQUI, LOURDES EVELYN PASSANO DIAZ, LUCIA BRUNELLA",
+            "fecha_consulta": "20/07/2026 13,06.39"
+        }
+    },
+    {
+        "placa_consultada": "EU5960",
+        "fecha_registro_ocr": "2026-07-20 13:07:31",
+        "data": {
+            "placa": "EU5960",
+            "serie": "9CZNDI8ZORR102295",
+            "vin": "9C2NDI8ZORR102295",
+            "motor": "NDISE2R102273",
+            "color": "AZUL",
+            "marca": "HONDA",
+            "modelo": "XRE3OO SAHARA",
+            "placa_vigente": "EU5960",
+            "placa_anterior": "NINGUNA",
+            "estado": "EN CIRCULACION",
+            "anotaciones": "NINGUNA",
+            "sede": "LIMA",
+            "anio_modelo": "2024",
+            "propietarios": "MUNICIPALIDAD METROPOLITANA DE LIMA",
+            "fecha_consulta": "20/07/2026 13,07.21"
+        }
+    },
+    {
+        "placa_consultada": "AZX217",
+        "fecha_registro_ocr": "2026-07-20 13:08:14",
+        "data": {
+            "placa": "AZX217",
+            "serie": "WBAIG1102IED58029",
+            "vin": "WBAIG1102IED58029",
+            "motor": "G235H585",
+            "color": "AZUL MEDITERRANEO METALIZAC",
+            "marca": "BMW",
+            "modelo": "XI",
+            "placa_vigente": "AZX217",
+            "placa_anterior": "NINGUNA",
+            "estado": "EN CIRCULACION",
+            "anotaciones": "NINGUNA",
+            "sede": "LIMA",
+            "anio_modelo": "2018",
+            "propietarios": "CORTEZ TEJERINA, JUAN MAURICIO ROSSI ACCINELLI, ALESSANDRA",
+            "fecha_consulta": "20/07/2026 13,08.03"
+        }
+    },
+    {
+        "placa_consultada": "AWY656",
+        "fecha_registro_ocr": "2026-07-20 13:09:35",
+        "data": {
+            "placa": "AWY656",
+            "serie": "IFMSK8F81HGB02322",
+            "vin": "1FMSK8F81HGBO2322",
+            "motor": "HGBO2322",
+            "color": "ROIO",
+            "marca": "FORD",
+            "modelo": "EXPLORER",
+            "placa_vigente": "AWY656",
+            "placa_anterior": "NINGUNA",
+            "estado": "EN CIRCULACION",
+            "anotaciones": "NINGUNA",
+            "sede": "LIMA",
+            "anio_modelo": "2017",
+            "propietarios": "COLONA VELASQUEZ DE REYNA, MARIA ARLITA REYNA MONTEVERDE, TINO EDUARDO",
+            "fecha_consulta": "20/07/2026 13,09.25"
+        }
     }
 ]

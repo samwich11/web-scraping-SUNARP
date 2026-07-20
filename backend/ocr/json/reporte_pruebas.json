@@ -1,0 +1,146 @@
+{
+    "fecha": "2026-07-20T13:09:35",
+    "total": 23,
+    "exitosas": 19,
+    "fallidas": 4,
+    "resultados": [
+        {
+            "placa": "BUD370",
+            "estado": "exitoso",
+            "error": null,
+            "duracion_segundos": 22.28
+        },
+        {
+            "placa": "ANH335",
+            "estado": "exitoso",
+            "error": null,
+            "duracion_segundos": 23.04
+        },
+        {
+            "placa": "EPF825",
+            "estado": "fallido",
+            "error": "Captcha no resuelto: Por favor resuelva el captcha antes de continuar",
+            "duracion_segundos": 19.42
+        },
+        {
+            "placa": "A7J623",
+            "estado": "exitoso",
+            "error": null,
+            "duracion_segundos": 22.28
+        },
+        {
+            "placa": "B0K833",
+            "estado": "exitoso",
+            "error": null,
+            "duracion_segundos": 21.77
+        },
+        {
+            "placa": "CES001",
+            "estado": "exitoso",
+            "error": null,
+            "duracion_segundos": 22.17
+        },
+        {
+            "placa": "T8I297",
+            "estado": "exitoso",
+            "error": null,
+            "duracion_segundos": 22.36
+        },
+        {
+            "placa": "BMB433",
+            "estado": "exitoso",
+            "error": null,
+            "duracion_segundos": 21.78
+        },
+        {
+            "placa": "CJY610",
+            "estado": "fallido",
+            "error": "Captcha no resuelto: Por favor resuelva el captcha antes de continuar",
+            "duracion_segundos": 19.28
+        },
+        {
+            "placa": "B8J419",
+            "estado": "exitoso",
+            "error": null,
+            "duracion_segundos": 21.87
+        },
+        {
+            "placa": "CSJ556",
+            "estado": "exitoso",
+            "error": null,
+            "duracion_segundos": 21.93
+        },
+        {
+            "placa": "A2W364",
+            "estado": "exitoso",
+            "error": null,
+            "duracion_segundos": 22.0
+        },
+        {
+            "placa": "BHN036",
+            "estado": "fallido",
+            "error": "Captcha no resuelto: Por favor resuelva el captcha antes de continuar",
+            "duracion_segundos": 18.81
+        },
+        {
+            "placa": "B4H289",
+            "estado": "exitoso",
+            "error": null,
+            "duracion_segundos": 21.62
+        },
+        {
+            "placa": "ANH138",
+            "estado": "exitoso",
+            "error": null,
+            "duracion_segundos": 21.79
+        },
+        {
+            "placa": "5367MC",
+            "estado": "exitoso",
+            "error": null,
+            "duracion_segundos": 21.81
+        },
+        {
+            "placa": "AKL514",
+            "estado": "exitoso",
+            "error": null,
+            "duracion_segundos": 21.56
+        },
+        {
+            "placa": "CAM870",
+            "estado": "exitoso",
+            "error": null,
+            "duracion_segundos": 21.98
+        },
+        {
+            "placa": "ATB381",
+            "estado": "exitoso",
+            "error": null,
+            "duracion_segundos": 21.93
+        },
+        {
+            "placa": "EU5960",
+            "estado": "exitoso",
+            "error": null,
+            "duracion_segundos": 21.87
+        },
+        {
+            "placa": "AZX217",
+            "estado": "exitoso",
+            "error": null,
+            "duracion_segundos": 22.46
+        },
+        {
+            "placa": "BKY509",
+            "estado": "fallido",
+            "error": "Captcha no resuelto: Por favor resuelva el captcha antes de continuar",
+            "duracion_segundos": 18.99
+        },
+        {
+            "placa": "AWY656",
+            "estado": "exitoso",
+            "error": null,
+            "duracion_segundos": 21.86
+        }
+    ]
+}

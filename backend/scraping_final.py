@@ -66,7 +66,16 @@ def scrape_vehicle_image(placa: str, close_driver: bool = True) -> Path:
 
         print(f"Abriendo página de SUNARP para placa: {placa}")
 
-        driver.get(url)
+        # Replicar el flujo de scraping.py: abrir la consulta en una pestaña
+        # nueva y darle tiempo al captcha invisible para validarse.
+        driver.execute_script("window.open(arguments[0], '_blank')", url)
+
+        WebDriverWait(driver, 10).until(
+            lambda current_driver: len(current_driver.window_handles) > 1
+        )
+        driver.switch_to.window(driver.window_handles[-1])
+
+        time.sleep(15)
 
         wait = WebDriverWait(driver, 60)
 
@@ -80,11 +89,7 @@ def scrape_vehicle_image(placa: str, close_driver: bool = True) -> Path:
 
         print("Valor ingresado:", input_placa.get_attribute("value"))
 
-        # Pausa por si aparece Cloudflare Turnstile
-        print("\nSi aparece Cloudflare Turnstile, resuélvelo manualmente.")
-        input("Cuando la página esté lista, presiona ENTER para continuar...")
-
-        # Click en botón buscar
+        # Esperar y pulsar el botón automáticamente, sin intervención manual.
         btn_buscar = wait.until(
             EC.element_to_be_clickable(
                 (By.XPATH, "//button[contains(., 'Realizar Busqueda')]")
@@ -93,30 +98,42 @@ def scrape_vehicle_image(placa: str, close_driver: bool = True) -> Path:
 
         btn_buscar.click()
 
-        # btn_buscar = WebDriverWait(driver, 30).until(
-        #     EC.element_to_be_clickable(
-        #         (By.XPATH, "//button[contains(., 'Realizar Busqueda')]")
-        #     )
-        # )
-
-        # btn_buscar.click()
-
         print("Búsqueda enviada. Esperando imagen resultado...")
 
-        # Esperar imagen resultado
-        img = wait.until(
-            EC.visibility_of_element_located(
-                (
-                    By.XPATH,
-                    "/html/body/app-root/nz-content/div/app-inicio/app-vehicular/nz-layout/nz-content/div/nz-card/div/app-form-datos-consulta/div/img"
-                )
+        image_locator = (
+            By.XPATH,
+            "/html/body/app-root/nz-content/div/app-inicio/app-vehicular/nz-layout/nz-content/div/nz-card/div/app-form-datos-consulta/div/img"
+        )
+        captcha_error_locator = (By.ID, "swal2-title")
+
+        # Finalizar inmediatamente si SUNARP rechaza el captcha, en lugar de
+        # agotar el tiempo esperando una imagen que no será generada.
+        result = WebDriverWait(driver, 30).until(
+            EC.any_of(
+                EC.visibility_of_element_located(image_locator),
+                EC.visibility_of_element_located(captcha_error_locator),
             )
         )
 
-        # Espera adicional para asegurar que el src base64 cargue completo
-        time.sleep(3)
+        if result.get_attribute("id") == "swal2-title":
+            detail_elements = driver.find_elements(By.ID, "swal2-html-container")
+            detail = detail_elements[0].text.strip() if detail_elements else ""
+            message = result.text.strip() or "Captcha rechazado por SUNARP"
+            if detail:
+                message = f"{message}: {detail}"
+            raise RuntimeError(message)
 
-        src = img.get_attribute("src")
+        img = result
+
+        # Esperar hasta que Angular termine de colocar la imagen en Base64.
+        src = wait.until(
+            lambda _driver: (
+                img.get_attribute("src")
+                if (img.get_attribute("src") or "").startswith("data:image/")
+                and "," in (img.get_attribute("src") or "")
+                else False
+            )
+        )
 
         if not src:
             raise ValueError("No se encontró el atributo src en la imagen.")
@@ -145,4 +162,4 @@ def scrape_vehicle_image(placa: str, close_driver: bool = True) -> Path:
 # ===============================================================
 
 if __name__ == "__main__":
-    scrape_vehicle_image("A1B234")
+    scrape_vehicle_image("5367MC")

@@ -53,14 +53,26 @@ BASE_DIR = Path(__file__).resolve().parents[1]
 RESULTS_DIR = BASE_DIR / "results"
 OCR_RESULTS_DIR = BASE_DIR / "ocr" / "results"
 
+# La imagen con la que se definieron los ROI mide 675x850 antes de quitar
+# el encabezado y 675x710 después del recorte de 140 px.
+REFERENCE_WIDTH = 675
+REFERENCE_HEIGHT = 850
 
-def preprocess_image(image_path: str | Path, output_dir: str | Path = OCR_RESULTS_DIR, crop_header: int = 140):
+
+def preprocess_image(
+    image_path: str | Path,
+    output_dir: str | Path = OCR_RESULTS_DIR,
+    crop_header: int = 140,
+    reference_width: int = REFERENCE_WIDTH,
+    reference_height: int = REFERENCE_HEIGHT,
+):
     """
     Preprocesa la imagen obtenida del scraping:
     1. Carga la imagen en escala de grises.
-    2. Aplica binarización.
-    3. Recorta el encabezado.
-    4. Guarda la imagen procesada.
+    2. Normaliza su tamaño al usado para definir los ROI.
+    3. Aplica binarización.
+    4. Recorta el encabezado.
+    5. Guarda la imagen procesada.
     """
 
     image_path = Path(image_path)
@@ -75,6 +87,21 @@ def preprocess_image(image_path: str | Path, output_dir: str | Path = OCR_RESULT
     if image_gray is None:
         raise ValueError(f"No se pudo cargar la imagen: {image_path}")
 
+    source_height, source_width = image_gray.shape[:2]
+
+    if reference_width <= 0 or reference_height <= 0:
+        raise ValueError("Las dimensiones de referencia deben ser mayores que cero.")
+
+    # SUNARP entrega la misma ficha en distintas resoluciones (por ejemplo,
+    # 540x680 y 675x850). Normalizar antes del recorte conserva la posición
+    # de todos los campos respecto de los ROI originales.
+    if (source_width, source_height) != (reference_width, reference_height):
+        image_gray = cv2.resize(
+            image_gray,
+            (reference_width, reference_height),
+            interpolation=cv2.INTER_CUBIC,
+        )
+
     _, image_binary = cv2.threshold(
         image_gray,
         150,
@@ -83,6 +110,11 @@ def preprocess_image(image_path: str | Path, output_dir: str | Path = OCR_RESULT
     )
 
     height, width = image_binary.shape[:2]
+
+    if not 0 <= crop_header < height:
+        raise ValueError(
+            f"crop_header debe estar entre 0 y {height - 1}; recibido: {crop_header}"
+        )
 
     image_cropped = image_binary[crop_header:height, 0:width]
 
@@ -93,8 +125,10 @@ def preprocess_image(image_path: str | Path, output_dir: str | Path = OCR_RESULT
 
     return {
         "plate": plate,
-        "original_width": width,
-        "original_height": height,
+        "original_width": source_width,
+        "original_height": source_height,
+        "normalized_width": width,
+        "normalized_height": height,
         "processed_width": image_cropped.shape[1],
         "processed_height": image_cropped.shape[0],
         "output_path": str(output_path)

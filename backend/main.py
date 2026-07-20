@@ -2,7 +2,7 @@ import argparse
 import json
 from pathlib import Path
 
-from scraping_gpt import scrape_vehicle_image
+from backend.scraping_final import scrape_vehicle_image
 from ocr.preprocess import preprocess_image
 from ocr.read_image import extract_data_from_image
 
