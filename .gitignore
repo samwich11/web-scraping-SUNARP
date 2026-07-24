@@ -17,3 +17,24 @@ temp/
 
 # Playwright
 playwright-report/
+
+
+# Resultados generados por scraping y OCR
+# backend/results/
+# backend/ocr/results/
+# backend/ocr/json/
+
+# Archivos de depuración
+debug_*.png
+# backend/resultado.html
+
+# Configuración local de editores
+.vscode/
+.idea/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Herramientas locales de agentes
+.agents/
