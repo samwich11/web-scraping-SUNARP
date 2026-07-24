@@ -1,4 +1,7 @@
 import argparse
+import contextlib
+import io
+import warnings
 import cv2
 import numpy as np
 import PIL.Image as Image
@@ -11,9 +14,9 @@ _lector = None
 
 
 def cargar_lector(gpu: bool = False) -> easyocr.Reader:
-    """
-    Carga EasyOCR (singleton, no se recarga en cada llamada).
-    """
+
+    # Carga EasyOCR (singleton, no se recarga en cada llamada).
+    
     global _lector
 
     if _lector is None:
@@ -22,32 +25,32 @@ def cargar_lector(gpu: bool = False) -> easyocr.Reader:
     return _lector
 
 def cargar_imagen(imagen_path: str) -> np.ndarray:
-    """
-    Carga la imagen con PIL (soporta PNG con canal alfa, formatos raros, etc.)
-    y la convierte a un array BGR de 3 canales, listo para EasyOCR/OpenCV.
-    """
+
+    # Carga la imagen desde disco y la convierte a un array BGR de 3 canales.
+    
     pil_img = Image.open(imagen_path).convert("RGB")
     return cv2.cvtColor(np.array(pil_img), cv2.COLOR_RGB2BGR)
 
 
 def extraer_textos(imagen_path: str, gpu: bool = False) -> list:
-    """
-    Corre EasyOCR UNA sola vez sobre la imagen original, sin ningun
-    preprocesamiento (sin escala de grises, sin Otsu, sin adaptiveThreshold).
-
-    Devuelve una lista de dicts con el texto TAL CUAL lo lee EasyOCR
-    (sin limpiar ni poner en mayusculas) y su confianza:
-
-        [{"texto": "ABC-123", "confianza": 0.91}, ...]
-    """
-    lector = cargar_lector(gpu=gpu)
+    
+    #Corre EasyOCR UNA sola vez sobre la imagen original.
+    #Devuelve una lista de dicts con el texto TAL CUAL lo lee EasyOCR
+    
+    with warnings.catch_warnings():
+        warnings.simplefilter("ignore")
+        with contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
+            lector = cargar_lector(gpu=gpu)
 
     imagen = cargar_imagen(imagen_path)
-    resultados = lector.readtext(imagen, allowlist=ALLOWLIST_OCR)
+
+    with warnings.catch_warnings():
+        warnings.simplefilter("ignore")
+        with contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
+            resultados = lector.readtext(imagen, allowlist=ALLOWLIST_OCR)
 
     textos = []
     for (_bbox, texto, confianza) in resultados:
-        print(f"Texto: {texto}, Confianza: {confianza}")
         textos.append({
             "texto": texto,
             "confianza": round(float(confianza), 4),

@@ -1,27 +1,32 @@
 import argparse
 import importlib.util
+import logging
 import re
 import sys
+import warnings
 from pathlib import Path
+
+# Warning para guardar la salida de consola limpia
+warnings.filterwarnings("ignore", category=UserWarning, module="torch")
+warnings.filterwarnings("ignore", category=UserWarning, module="torch.ao")
 
 BASE_DIR = Path(__file__).resolve().parent
 
 # 3 caracteres alfanumericos + guion + 3 numeros, ej: ABC-123
 PATRON_PLACA = re.compile(r"^[A-Z0-9]{3}-?\d{3}$")
 
+logger = logging.getLogger("sistema_alpr")
+
+
+def configurar_logging(debug: bool = False) -> None:
+    # Configura el logger con un formato limpio para que la salida en consola sea legible.
+    nivel = logging.DEBUG if debug else logging.INFO
+    logging.basicConfig(level=nivel, format="%(message)s")
+
 
 def cargar_modulo(nombre: str, ruta: Path):
-    """
-    Carga un archivo .py como modulo Python a partir de su ruta absoluta.
-    Se usa importlib (en vez de un import normal) porque las carpetas
-    'modelo-YOLO' y 'modelo-OCR' tienen guiones y no son nombres de
-    paquete validos para un 'import' estandar.
-
-    Tambien agrega la carpeta del modulo a sys.path, para que los imports
-    relativos que hace ese modulo (ej. backend/main.py importando
-    'scraping_gpt' o 'ocr.preprocess') sigan funcionando igual que si se
-    ejecutara ese archivo directamente desde su propia carpeta.
-    """
+    # Carga los modulo del sistema ALRP a partir de su ruta absoluta.
+    
     sys.path.insert(0, str(ruta.parent))
 
     spec = importlib.util.spec_from_file_location(nombre, ruta)
@@ -32,9 +37,9 @@ def cargar_modulo(nombre: str, ruta: Path):
     return modulo
 
 
-yolo_main = cargar_modulo("yolo_main", BASE_DIR / "modelo-YOLO" / "main.py")
-ocr_main = cargar_modulo("ocr_main", BASE_DIR / "modelo-OCR" / "main.py")
-backend_main = cargar_modulo("backend_main", BASE_DIR / "backend" / "main.py")
+def encabezado(texto: str) -> None:
+    # Imprime un encabezado de paso con separador uniforme.
+    logger.info("── %s ──", texto)
 
 
 def main():
@@ -49,58 +54,92 @@ def main():
         help="Ruta de la imagen a analizar"
     )
 
+    parser.add_argument(
+        "--debug",
+        action="store_true",
+        help="Muestra detalle tecnico adicional (rutas, trazas, etc.)"
+    )
+
+    parser.add_argument(
+        "--output",
+        default="resultados",
+        help="Carpeta base donde se guardara la imagen con bounding boxes (por defecto: 'resultados')"
+    )
+
     args = parser.parse_args()
+    configurar_logging(debug=args.debug)
+
     imagen_path = args.imagen
+    logger.debug("Imagen recibida: %s", imagen_path)
+
+    yolo_main = cargar_modulo("yolo_main", BASE_DIR / "modelo-YOLO" / "main.py")
+    ocr_main = cargar_modulo("ocr_main", BASE_DIR / "modelo-OCR" / "main.py")
+    backend_main = cargar_modulo("backend_main", BASE_DIR / "backend" / "main.py")
 
     # -----------------------------------------------------------------
-    # 1. YOLOv8: verificar si hay una placa en la imagen
+    # 1. YOLOv8: verificar cuantas placas hay en la imagen
     # -----------------------------------------------------------------
-    print("[1/3] Verificando si hay una placa en la imagen (YOLOv8)...")
+    encabezado("Paso 1/3: Deteccion de placa (YOLOv8)")
 
-    if not yolo_main.hay_placa(imagen_path):
-        print("No se detecto la placa")
+    total_placas, resultado_yolo = yolo_main.detectar_placas(imagen_path)
+
+    if total_placas == 0:
+        logger.info("No se detecto la placa")
         return
 
-    "Se detecto una(s) placa(s) en la imagen, continuando con OCR y scraping SUNARP..."
+    logger.info("Se detectaron %d placa(s):", total_placas)
+
+    cajas = resultado_yolo.boxes
+    if cajas is not None:
+        for i, caja in enumerate(cajas, start=1):
+            confianza_deteccion = float(caja.conf[0])
+            logger.info("  - Placa %d (confianza deteccion: %.4f)", i, confianza_deteccion)
+
+    ruta_guardada = yolo_main.dibujar_y_guardar(imagen_path, resultado_yolo, args.output)
+    logger.info("Imagen con bounding boxes guardada en: %s", ruta_guardada)
+
+    logger.info("Continuando con OCR y scraping SUNARP...")
 
     # -----------------------------------------------------------------
     # 2. EasyOCR: extraer todos los textos de la imagen ORIGINAL
     # -----------------------------------------------------------------
-    print("[2/3] Extrayendo texto de la imagen (EasyOCR)...")
+    encabezado("Paso 2/3: Lectura de texto (EasyOCR)")
 
     textos_detectados = ocr_main.extraer_textos(imagen_path)
 
-    # Validar cada texto TAL CUAL lo devuelve EasyOCR (sin limpiar)
-    # contra el patron de placa: 3 alfanumericos + guion + 3 numeros
-    placas_validas = [
-        item for item in textos_detectados
-        if PATRON_PLACA.match(item["texto"])
-    ]
-
-    if not placas_validas:
-        print("No hay placas legibles")
+    if not textos_detectados:
+        logger.info("No se detecto texto en la imagen")
         return
 
-    print(f"\nPlacas validas encontradas ({len(placas_validas)}):")
-    for p in placas_validas:
-        print(f"  - {p['texto']} (confianza OCR: {p['confianza']})")
+    logger.info("Textos detectados (%d):", len(textos_detectados))
+
+    placas_validas = []
+    for t in textos_detectados:
+        es_valido = bool(PATRON_PLACA.match(t["texto"]))
+        estado = "valido" if es_valido else "no valido"
+        logger.info("  - '%s' (confianza: %s) -> %s", t["texto"], t["confianza"], estado)
+
+        if es_valido:
+            placas_validas.append(t)
+
+    if not placas_validas:
+        logger.info("No hay placas legibles")
+        return
 
     # -----------------------------------------------------------------
     # 3. Scraping SUNARP por cada placa valida
     # -----------------------------------------------------------------
-    print("\n[3/3] Consultando SUNARP para cada placa valida...")
+    encabezado("Paso 3/3: Consulta SUNARP")
 
     for p in placas_validas:
         placa = p["texto"]
 
-        print("\n" + "=" * 70)
-        print(f"PLACA: {placa}")
-        print("=" * 70)
+        encabezado(f"Placa {placa}: iniciando consulta SUNARP")
 
         try:
             backend_main.run_pipeline(placa)
         except Exception as e:
-            print(f"Error al procesar la placa {placa}: {e}")
+            logger.error("Error al procesar la placa %s: %s", placa, e)
 
 
 if __name__ == "__main__":
